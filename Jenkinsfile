@@ -5,7 +5,9 @@ pipeline {
     }
 
     environment {
-    GEN_CODE_ONLY = 'off'
+        GEN_CODE_ONLY = 'off'
+        MATLAB_COMMAND = 'C:\\Program Files\\MATLAB\\R2023b\\bin\\matlab.exe'
+        MATLAB_SCRIPT_PATH = 'C:\\D_drive\\test_matlab\\test.m'
     }
     stages {
 
@@ -24,6 +26,21 @@ pipeline {
                         bat "xcopy \"${sourcePath}\" \"${destinationPath}\" /E /I /H /K"
                     } else {
                         sh "cp -r ${sourcePath} ${destinationPath}"
+                    }
+                }
+            }
+        }
+
+        stage('Run MATLAB Script') {
+            steps {
+                script {
+                    // Run on Windows
+                    if (isUnix()) {
+                        echo 'Running on Unix-based system'
+                        sh "\"${MATLAB_COMMAND}\" -r \"cd ${MATLAB_SCRIPT_PATH};try, run ('${MATLAB_SCRIPT_PATH}'); end;\""
+                    } else {
+                        echo 'Running on Windows'
+                        bat "\"${MATLAB_COMMAND}\" -r \"cd ${MATLAB_SCRIPT_PATH};try, run ('${MATLAB_SCRIPT_PATH}'); end;\""
                     }
                 }
             }
