@@ -3,6 +3,9 @@ pipeline {
     agent {
       label 'windows-agent' // Label for the Windows agent node  
   }
+    environment {
+    GEN_CODE_ONLY = 'off'
+  }
   stages {
     stage('Build') {
       steps {
@@ -27,8 +30,5 @@ pipeline {
       }
     }
 
-  }
-  environment {
-    GEN_CODE_ONLY = 'off'
   }
 }
