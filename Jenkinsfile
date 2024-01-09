@@ -11,7 +11,7 @@ pipeline {
     }
     stages {
 
-        stage('Copy Folder') {
+        /*stage('Copy Folder') {
             steps {
                 script {
                     // Check the operating system
@@ -29,7 +29,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
 
         stage('Run MATLAB Script') {
             steps {
