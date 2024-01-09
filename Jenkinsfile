@@ -17,7 +17,7 @@ pipeline {
 
                     // Source and destination paths
                     def sourcePath = isWindows ? 'C:\\JenkinsAgent\\workspace\\Keerthi\\RunMatlab' : '/path/to/source_folder'
-                    def destinationPath = isWindows ? 'C:\\Users\\KSREERANG' : '/path/to/destination_folder'
+                    def destinationPath = isWindows ? 'C:\\Users\\KSREERANG\\RunMatlab' : '/path/to/destination_folder'
 
                     // Copy the folder
                     if (isWindows) {
