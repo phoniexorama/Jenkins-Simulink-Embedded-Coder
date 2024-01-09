@@ -31,7 +31,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                runMATLABCommand 'run(\'arduino_build\')'
+                runMATLABCommand 'run(C:\\Users\\KSREERANG\\RunMatlab\\arduino_build)'
             }
         }
 
