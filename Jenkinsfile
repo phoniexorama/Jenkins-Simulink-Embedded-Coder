@@ -48,7 +48,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                runMATLABCommand 'run(C:\\Users\\KSREERANG\\RunMatlab\\arduino_build)'
+                runMATLABCommand 'run(C:\\JenkinsAgent\\workspace\\Keerthi\\CheckoutRepoOnLocalAgentWin\\arduino_build)'
             }
         }
 
